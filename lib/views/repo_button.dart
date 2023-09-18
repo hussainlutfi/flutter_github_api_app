@@ -4,7 +4,6 @@ import 'package:flutter/material.dart';
 import 'package:github_project/models/repositories.dart';
 import 'package:url_launcher/url_launcher.dart';
 
-
 class RepoButton extends StatelessWidget {
   const RepoButton({super.key, required this.repositories});
   final Repositories repositories;
@@ -13,8 +12,7 @@ class RepoButton extends StatelessWidget {
   Widget build(BuildContext context) {
     return ElevatedButton(
       onPressed: () async {
-        String url =
-            repositories.htmlUrl; 
+        String url = repositories.htmlUrl;
         if (await canLaunch(url)) {
           await launch(url);
         } else {
@@ -22,9 +20,13 @@ class RepoButton extends StatelessWidget {
         }
       },
       style: ButtonStyle(
-        backgroundColor:
-            MaterialStateProperty.all<Color>(Color.fromARGB(255, 39, 39, 39)),
-        minimumSize: MaterialStateProperty.all<Size>(Size(1000, 60)),
+        backgroundColor: MaterialStateProperty.all<Color>(
+            const Color.fromARGB(255, 72, 72, 72)),
+        minimumSize: MaterialStateProperty.all<Size>(Size(375, 60)),
+        foregroundColor: MaterialStateProperty.all<Color>(Colors.white),
+        shape: MaterialStateProperty.all<OutlinedBorder?>(
+            const RoundedRectangleBorder(
+                borderRadius: BorderRadius.all(Radius.circular(15)))),
       ),
       child: Text(
         repositories.name,
