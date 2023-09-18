@@ -1,5 +1,3 @@
-
-
 import 'package:animated_button_bar/animated_button_bar.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
@@ -7,19 +5,18 @@ import 'package:flutter/widgets.dart';
 class AnimatedRepoButton extends StatelessWidget {
   const AnimatedRepoButton(
       {super.key, required this.toStarred, required this.toRepositories});
-      
-      final Function() toStarred;
-      final Function() toRepositories;
 
+  final Function() toStarred;
+  final Function() toRepositories;
 
   @override
   Widget build(context) {
     return AnimatedButtonBar(
       animationDuration: const Duration(seconds: 1),
-      radius: 10.0,
+      radius: 50.0,
       padding: const EdgeInsets.all(16.0),
-      backgroundColor: const Color.fromARGB(255, 72, 72, 72),
-      foregroundColor: const Color.fromARGB(255, 192, 192, 192),
+      backgroundColor: Color.fromARGB(255, 144, 144, 144),
+      foregroundColor: const Color.fromARGB(255, 217, 217, 217),
       elevation: 24,
       // borderColor: Colors.white,
       // borderWidth: 2,
@@ -30,20 +27,18 @@ class AnimatedRepoButton extends StatelessWidget {
           child: const Text(
             "Repositories",
             style: TextStyle(
-              fontSize: 15,
+              fontSize: 17,
               fontWeight: FontWeight.bold,
-
             ),
           ),
         ), //Icon(Icons.person)),
         ButtonBarEntry(
-          onTap:  toStarred,
+          onTap: toStarred,
           child: const Text(
             "Starred",
             style: TextStyle(
-              fontSize: 15,
+              fontSize: 17,
               fontWeight: FontWeight.bold,
-
             ),
           ),
         ),

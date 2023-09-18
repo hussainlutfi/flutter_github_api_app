@@ -42,25 +42,33 @@ class _Github extends State<Github> {
     return MaterialApp(
       home: Scaffold(
         appBar: AppBar(
-          title: const Text("GitHub User"),
+          title: Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              Image.asset("assets/images/25231.png", width: 35,),
+              const SizedBox(width: 10,),
+              const Text("GitHub User"),
+            ],
+          ),
           centerTitle: true,
           titleTextStyle: const TextStyle(
             color: Color.fromARGB(255, 44, 44, 44),
             fontSize: 30,
             fontWeight: FontWeight.bold,
           ),
-          backgroundColor: Colors.grey,
+          backgroundColor: Color.fromARGB(255, 188, 188, 188),
         ),
         body: Container(
           decoration: const BoxDecoration(
-            gradient: LinearGradient(
-              colors: [
-                Color.fromARGB(255, 255, 255, 255),
-                Color.fromARGB(255, 143, 143, 143),
-              ],
-              begin: Alignment.topLeft,
-              end: Alignment.bottomRight,
-            ),
+            // gradient: LinearGradient(
+            //   colors: [
+            //     Color.fromARGB(255, 255, 255, 255),
+            //     Color.fromARGB(255, 143, 143, 143),
+            //   ],
+            //   begin: Alignment.topLeft,
+            //   end: Alignment.bottomRight,
+            // ),
+            color: Colors.white,
           ),
           child: const APIScreen(),
         ),

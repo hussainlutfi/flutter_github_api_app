@@ -70,7 +70,7 @@ class _APIScreen extends State<APIScreen> {
         child: Column(
           children: [
             const SizedBox(
-              height: 50,
+              height: 20,
             ),
             MainDetails(
               user: user,
