@@ -45,19 +45,19 @@ class _APIScreen extends State<APIScreen> {
     }
   }
 
-  void toStarred() {
-    setState(() {
-      showRepositories = false;
-      showStarredRepos = true;
-    });
-  }
-
-  void toRepositories() {
-    setState(() {
-      showRepositories = true;
-      showStarredRepos = false;
-    });
-  }
+  // void toStarred() {
+  //   setState(() {
+  //     showRepositories = false;
+  //     showStarredRepos = true;
+  //   });
+  // }
+  //
+  // void toRepositories() {
+  //   setState(() {
+  //     showRepositories = true;
+  //     showStarredRepos = false;
+  //   });
+  // }
 
   @override
   Widget build(BuildContext context) {
@@ -75,16 +75,16 @@ class _APIScreen extends State<APIScreen> {
             MainDetails(
               user: user,
             ),
-            AnimatedRepoButton(
-                toStarred: toStarred, toRepositories: toRepositories),
-            Visibility(
-              visible: isLoaded && showRepositories,
-              child: RepoList(repositoriesList: repositoriesList),
-            ),
-            Visibility(
-              visible: isLoaded && showStarredRepos,
-              child: RepoList(repositoriesList: starredReposList),
-            )
+            // AnimatedRepoButton(
+            //     toStarred: toStarred, toRepositories: toRepositories),
+            // Visibility(
+            //   visible: isLoaded && showRepositories,
+            //   child: RepoList(repositoriesList: repositoriesList),
+            // ),
+            // Visibility(
+            //   visible: isLoaded && showStarredRepos,
+            //   child: RepoList(repositoriesList: starredReposList),
+            // )
           ],
         ),
       ),

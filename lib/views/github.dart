@@ -5,6 +5,7 @@ import 'package:github_project/services/remote_service.dart';
 import 'package:github_project/views/api_screen.dart';
 import 'package:github_project/views/home_screen.dart';
 import 'package:github_project/views/main_details.dart';
+import 'package:github_project/views/nav_bar.dart';
 import 'package:github_project/views/repo_list.dart';
 
 class Github extends StatefulWidget {
@@ -70,8 +71,9 @@ class _Github extends State<Github> {
             // ),
             color: Colors.white,
           ),
-          child: const APIScreen(),
+          child: Center(child: const APIScreen()),
         ),
+        bottomNavigationBar: const NavBar(),
       ),
     );
   }
