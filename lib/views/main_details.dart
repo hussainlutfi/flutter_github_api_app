@@ -28,16 +28,17 @@ class MainDetails extends StatelessWidget {
           height: 325,
           decoration: const BoxDecoration(
             borderRadius: BorderRadius.all(Radius.circular(20)),
-            gradient: LinearGradient(
-              colors: [
-                // Color.fromARGB(255, 0, 0, 0),
-                // Color.fromARGB(255, 79, 79, 79),
-                Color.fromARGB(255, 118, 95, 83),
-                Color.fromARGB(255, 191, 176, 168),
-              ],
-              begin: Alignment.topLeft,
-              end: Alignment.bottomRight,
-            ),
+          //   gradient: LinearGradient(
+          //     colors: [
+          //       // Color.fromARGB(255, 0, 0, 0),
+          //       // Color.fromARGB(255, 79, 79, 79),
+          //       Color.fromARGB(255, 118, 95, 83),
+          //       Color.fromARGB(255, 191, 176, 168),
+          //     ],
+          //     begin: Alignment.topLeft,
+          //     end: Alignment.bottomRight,
+          //   ),
+            color: Color.fromARGB(255, 102, 98, 217),
           ),
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,

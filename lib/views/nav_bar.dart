@@ -13,12 +13,12 @@ class NavBar extends StatelessWidget{
     // TODO: implement build
     return Container(
       decoration: BoxDecoration(
-        color: Colors.white,
+        color: Color.fromARGB(255, 255, 255, 255),
         boxShadow: [
-          BoxShadow(
-            blurRadius: 20,
-            color: Colors.black.withOpacity(.1),
-          )
+          // BoxShadow(
+          //   blurRadius: 20,
+          //   color: Colors.black.withOpacity(.1),
+          // )
         ],
       ),
       child: SafeArea(
@@ -28,12 +28,12 @@ class NavBar extends StatelessWidget{
             rippleColor: Colors.grey[300]!,
             hoverColor: Colors.grey[100]!,
             gap: 8,
-            activeColor: Colors.black,
+            activeColor: Color.fromARGB(255, 78, 74, 217),//Colors.black,
             iconSize: 24,
             padding: EdgeInsets.symmetric(horizontal: 20, vertical: 12),
             duration: Duration(milliseconds: 400),
             tabBackgroundColor: Colors.grey[100]!,
-            color: Colors.black,
+            color: Color.fromARGB(255, 102, 98, 217), //Colors.black,
             tabs: [
               GButton(
                 icon: LineIcons.user,
@@ -51,6 +51,7 @@ class NavBar extends StatelessWidget{
                 icon: LineIcons.git,
                 text: 'Repositories',
               ),
+              
 
             ],
             // selectedIndex: _selectedIndex,
