@@ -3,90 +3,119 @@ import 'package:github_project/models/User.dart';
 import 'package:github_project/models/repositories.dart';
 import 'package:github_project/services/remote_service.dart';
 import 'package:github_project/views/animated_repo_button.dart';
+import 'package:github_project/views/follow_screen.dart';
 import 'package:github_project/views/main_details.dart';
 import 'package:github_project/views/repo_button.dart';
 import 'package:github_project/views/repo_list.dart';
 
-class APIScreen extends StatefulWidget {
-  const APIScreen({super.key});
-
-  @override
-  State<StatefulWidget> createState() {
-    // TODO: implement createState
-    return _APIScreen();
-  }
-}
-
-class _APIScreen extends State<APIScreen> {
-  User? user;
-  bool showRepositories = true;
-  bool showStarredRepos = false;
-  List<Repositories>? repositoriesList;
-  List<Repositories>? starredReposList;
-  var isLoaded = false;
-  @override
-  void initState() {
-    // TODO: implement initState
-    super.initState();
-    getData();
-  }
-
-  getData() async {
-    user = await RemoteService().getUser();
-    repositoriesList =
-        await RemoteService().getRepositories(user?.reposUrl ?? "");
-    String starredRepos = user?.starredUrl ?? "";
-    starredReposList = await RemoteService()
-        .getRepositories(starredRepos.substring(0, starredRepos.length - 15));
-    if (user != null && repositoriesList != null && starredReposList != null) {
-      setState(() {
-        isLoaded = true;
-      });
-    }
-  }
-
-  // void toStarred() {
-  //   setState(() {
-  //     showRepositories = false;
-  //     showStarredRepos = true;
-  //   });
-  // }
-  //
-  // void toRepositories() {
-  //   setState(() {
-  //     showRepositories = true;
-  //     showStarredRepos = false;
-  //   });
-  // }
+class APIScreen extends StatelessWidget {
+  const APIScreen(
+      {super.key,
+      required this.user,
+      required this.isLoaded,
+      required this.followers,
+      required this.followings});
+  final User? user;
+  final bool isLoaded;
+  final List<User>? followers;
+  final List<User>? followings;
 
   @override
   Widget build(BuildContext context) {
-    return Visibility(
-      visible: isLoaded,
-      replacement: const Center(
-        child: CircularProgressIndicator(),
-      ),
-      child: Expanded(
-        child: Column(
-          children: [
-            const SizedBox(
-              height: 20,
-            ),
-            MainDetails(
-              user: user,
-            ),
-            // AnimatedRepoButton(
-            //     toStarred: toStarred, toRepositories: toRepositories),
-            // Visibility(
-            //   visible: isLoaded && showRepositories,
-            //   child: RepoList(repositoriesList: repositoriesList),
-            // ),
-            // Visibility(
-            //   visible: isLoaded && showStarredRepos,
-            //   child: RepoList(repositoriesList: starredReposList),
-            // )
-          ],
+    // TODO: implement build
+    return SingleChildScrollView(
+      scrollDirection: Axis.vertical,
+      child: Visibility(
+        visible: isLoaded,
+        replacement: const Center(
+          child: CircularProgressIndicator(),
         ),
+          child: Column(
+            children: [
+              const SizedBox(
+                height: 20,
+              ),
+              MainDetails(
+                user: user,
+              ),
+              SizedBox(
+                height: 10,
+              ),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Image.asset("assets/images/icons8-queue-100.png" , width: 30, color: Color.fromARGB(255, 31, 47, 140) ,),
+                  TextButton(
+                    onPressed: () {
+                      Navigator.push(context,
+                          MaterialPageRoute(builder: (context) {
+                        return FollowScreen(
+                          followList: followers,
+                          type: "Followers",
+                        );
+                      }));
+                    },
+                    child: Row(
+                      children: [
+                        Text(
+                          "${user?.followers}",
+                          style: const TextStyle(
+                            fontSize: 20,
+                            fontWeight: FontWeight.bold,
+                            color: Color.fromARGB(255, 31, 47, 140),
+                          ),
+                        ),
+                        const Text(
+                          " Followers",
+                          style: TextStyle(
+                            fontSize: 18,
+                            fontWeight: FontWeight.bold,
+                            color: Color.fromARGB(150, 31, 47, 140),
+                          ),
+                        )
+                      ],
+                    ),
+                  ),
+                 
+                  Text("|", style: TextStyle(fontSize: 30 ,color: Color.fromARGB(255, 31, 47, 140)),),
+                  TextButton(
+                    onPressed: () {
+                      Navigator.push(context,
+                          MaterialPageRoute(builder: (context) {
+                        
+                          return FollowScreen(
+                            followList: followings,
+                            type: "Followings",
+                          );
+                        
+                      }));
+                    },
+                    child: Row(
+                      children: [
+                        Text(
+                          "${user?.following}",
+                          style: const TextStyle(
+                            fontSize: 20,
+                            fontWeight: FontWeight.bold,
+                            color: Color.fromARGB(255, 31, 47, 140),
+                          ),
+                        ),
+                        const Text(
+                          " Followings",
+                          style: TextStyle(
+                            fontSize: 18,
+                            fontWeight: FontWeight.bold,
+                            color: Color.fromARGB(150, 31, 47, 140),
+                          ),
+                        )
+                      ],
+                    ),
+                  ),
+                ],
+              ),
+              Image.network("https://ssr-contributions-svg.vercel.app/_/${user!.login}?chart=calendar&format=png&weeks=15&theme=blue&widget_size=small", width: 375,),
+            ],
+          ),
       ),
     );
   }

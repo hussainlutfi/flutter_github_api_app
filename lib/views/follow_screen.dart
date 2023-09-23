@@ -1,0 +1,112 @@
+import 'package:flutter/material.dart';
+import 'package:github_project/models/User.dart';
+import 'package:github_project/views/follow_button.dart';
+import 'package:line_icons/line_icons.dart';
+
+class FollowScreen extends StatelessWidget {
+  const FollowScreen({super.key, required this.followList, required this.type});
+  final List<User>? followList;
+  final String type;
+
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      home: Scaffold(
+        appBar: AppBar(
+          title: Row(
+            children: [
+              Align(
+                alignment: Alignment.centerLeft,
+                child: TextButton.icon(
+                  onPressed: () {
+                    Navigator.pop(context);
+                  },
+                  icon: const Icon(Icons.arrow_back_ios, color:Color.fromARGB(150, 31, 47, 140) ,),
+                  label: const Text(""),
+                ),
+              ),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  
+                  Image.asset(
+                    "assets/images/icons8-queue-100.png",
+                    width: 35,
+                    color: Color.fromARGB(255, 31, 47, 140),
+                  ),
+                  const SizedBox(
+                    width: 10,
+                  ),
+                  Text(
+                    type,
+                    style: TextStyle(
+                      color: Color.fromARGB(255, 31, 47, 140),
+                    ),
+                  ),
+                ],
+              ),
+            ],
+          ),
+          centerTitle: true,
+          titleTextStyle: const TextStyle(
+            color: Color.fromARGB(255, 44, 44, 44),
+            fontSize: 30,
+            fontWeight: FontWeight.bold,
+          ),
+          backgroundColor: Color.fromARGB(255, 240, 242, 242),
+        ),
+        body: Container(
+          decoration: const BoxDecoration(
+            color: Color.fromARGB(255, 242, 242, 242),
+          ),
+          child: Center(
+              child: Expanded(
+            // child: ListView(children: followList!.map((repository) {
+            //   return RepoButton(repositories: repository);
+            // }).toList()),
+            child: ListView.builder(
+              itemCount: followList!.length,
+              itemBuilder: (context, index) {
+                return Column(
+                  children: [
+                    const SizedBox(
+                      height: 20,
+                    ),
+                    FollowButton(
+                      follow: followList![index],
+                    ),
+                  ],
+                );
+              },
+            ),
+          )),
+        ),
+      ),
+    );
+
+    if (followList!.isNotEmpty) {
+      return Expanded(
+        // child: ListView(children: followList!.map((repository) {
+        //   return RepoButton(repositories: repository);
+        // }).toList()),
+        child: ListView.builder(
+          itemCount: followList!.length,
+          itemBuilder: (context, index) {
+            return Column(
+              children: [
+                const SizedBox(
+                  height: 20,
+                ),
+                FollowButton(
+                  follow: followList![index],
+                ),
+              ],
+            );
+          },
+        ),
+      );
+    } else {
+      return const Text("Empty");
+    }
+  }
+}

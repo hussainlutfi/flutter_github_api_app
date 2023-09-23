@@ -10,6 +10,7 @@ class RepoList extends StatelessWidget {
   Widget build(BuildContext context) {
     if (repositoriesList!.isNotEmpty) {
       return Expanded(
+
         // child: ListView(children: repositoriesList!.map((repository) {
         //   return RepoButton(repositories: repository);
         // }).toList()),
@@ -18,10 +19,10 @@ class RepoList extends StatelessWidget {
           itemBuilder: (context, index) {
             return Column(
               children: [
+                const SizedBox(height: 20,),
                 RepoButton(
                   repositories:repositoriesList![index] ,
                 ),
-                const SizedBox(height: 20,)
               ],
             );
           },

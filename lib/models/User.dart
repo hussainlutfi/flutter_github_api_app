@@ -1,6 +1,7 @@
 import 'dart:convert';
 
 User userFromJson(String str) => User.fromJson(json.decode(str));
+List<User> usersFromJson(String str) => List<User>.from(json.decode(str).map((x) => User.fromJson(x)));
 
 String userToJson(User data) => json.encode(data.toJson());
 
@@ -104,8 +105,8 @@ class User {
         publicGists: json["public_gists"],
         followers: json["followers"],
         following: json["following"],
-        createdAt: DateTime.parse(json["created_at"]),
-        updatedAt: DateTime.parse(json["updated_at"]),
+        // createdAt: DateTime.parse(json["created_at"]),
+        // updatedAt: DateTime.parse(json["updated_at"]),
     );
 
     Map<String, dynamic> toJson() => {

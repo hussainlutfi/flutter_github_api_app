@@ -71,6 +71,7 @@ flutter:
     - assets\images\Headerbild-Was-ist-GitHub-v2.png
     - assets\images\GitHub-Logo.png
     - assets\images\25231.png
+    - assets\images\icons8-queue-100.png
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware
