@@ -4,8 +4,11 @@ import 'package:github_project/views/main_app_screen.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});
+
   @override
   Widget build(BuildContext context) {
+    final usernameController = TextEditingController();
+
     return MaterialApp(
       home: Scaffold(
         body: Center(
@@ -31,36 +34,48 @@ class HomeScreen extends StatelessWidget {
                       'Welcome to GitHub API !',
                       textAlign: TextAlign.center,
                       style: TextStyle(
-                          fontSize: 35,
+                          fontSize: 30,
                           color: Color.fromARGB(255, 31, 47, 140),
                           fontWeight: FontWeight.bold),
                     ),
                     const SizedBox(height: 40),
                     TextField(
+                      controller: usernameController,
                       decoration: InputDecoration(
-                        border: OutlineInputBorder(borderRadius: BorderRadius.all(Radius.circular(12)),),
+                        border: OutlineInputBorder(
+                          borderRadius: BorderRadius.all(Radius.circular(12)),
+                        ),
                         labelText: 'GitHub Username',
-                        hintText: 'Enter Your Username',
+                        hintText: 'Username',
+                        suffixIcon: IconButton(
+                          icon: Icon(Icons.close),
+                          onPressed: () => usernameController.clear(),
+                        ),
                       ),
+                      keyboardType: TextInputType.name,
                     ),
                     const SizedBox(height: 40),
                     OutlinedButton.icon(
                         onPressed: () {
                           Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                            builder: (context) {
-                              return MainAppScreen();
-                            },
-                          ),
-                        );
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) {
+                                return MainAppScreen();
+                              },
+                            ),
+                          );
                         },
                         style: OutlinedButton.styleFrom(
                             //padding: const EdgeInsets.only(top: 30),
                             foregroundColor: Color.fromARGB(255, 31, 47, 140),
                             textStyle: const TextStyle(fontSize: 15)),
                         icon: const Icon(Icons.arrow_right_alt),
-                        label: const Text("Start GitHub API", style: TextStyle(fontSize: 15, fontWeight: FontWeight.bold),)),
+                        label: const Text(
+                          "Start GitHub API",
+                          style: TextStyle(
+                              fontSize: 15, fontWeight: FontWeight.bold),
+                        )),
                   ]),
             ),
           ),
