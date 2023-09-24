@@ -5,10 +5,10 @@ import 'package:http/http.dart' as http;
 
 class RemoteService{
 
-  Future<User?> getUser() async{
+  Future<User?> getUser(String userAPI) async{
     var client = http.Client();
 
-    var uri = Uri.parse('https://api.github.com/users/7ussainlz');
+    var uri = Uri.parse(userAPI);
     var response = await client.get(uri);
     if (response.statusCode == 200){
       var json = response.body;

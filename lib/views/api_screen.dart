@@ -25,97 +25,131 @@ class APIScreen extends StatelessWidget {
     // TODO: implement build
     return SingleChildScrollView(
       scrollDirection: Axis.vertical,
-      child: Visibility(
-        visible: isLoaded,
-        replacement: const Center(
-          child: CircularProgressIndicator(),
-        ),
-          child: Column(
-            children: [
-              const SizedBox(
-                height: 20,
-              ),
-              MainDetails(
-                user: user,
-              ),
-              SizedBox(
-                height: 10,
-              ),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  Image.asset("assets/images/icons8-queue-100.png" , width: 30, color: Color.fromARGB(255, 31, 47, 140) ,),
-                  TextButton(
-                    onPressed: () {
-                      Navigator.push(context,
-                          MaterialPageRoute(builder: (context) {
-                        return FollowScreen(
-                          followList: followers,
-                          type: "Followers",
-                        );
-                      }));
-                    },
-                    child: Row(
-                      children: [
-                        Text(
-                          "${user?.followers}",
-                          style: const TextStyle(
-                            fontSize: 20,
-                            fontWeight: FontWeight.bold,
-                            color: Color.fromARGB(255, 31, 47, 140),
-                          ),
-                        ),
-                        const Text(
-                          " Followers",
-                          style: TextStyle(
-                            fontSize: 18,
-                            fontWeight: FontWeight.bold,
-                            color: Color.fromARGB(150, 31, 47, 140),
-                          ),
-                        )
-                      ],
-                    ),
-                  ),
-                 
-                  Text("|", style: TextStyle(fontSize: 30 ,color: Color.fromARGB(255, 31, 47, 140)),),
-                  TextButton(
-                    onPressed: () {
-                      Navigator.push(context,
-                          MaterialPageRoute(builder: (context) {
-                        
-                          return FollowScreen(
-                            followList: followings,
-                            type: "Followings",
-                          );
-                        
-                      }));
-                    },
-                    child: Row(
-                      children: [
-                        Text(
-                          "${user?.following}",
-                          style: const TextStyle(
-                            fontSize: 20,
-                            fontWeight: FontWeight.bold,
-                            color: Color.fromARGB(255, 31, 47, 140),
-                          ),
-                        ),
-                        const Text(
-                          " Followings",
-                          style: TextStyle(
-                            fontSize: 18,
-                            fontWeight: FontWeight.bold,
-                            color: Color.fromARGB(150, 31, 47, 140),
-                          ),
-                        )
-                      ],
-                    ),
-                  ),
-                ],
-              ),
-              Image.network("https://ssr-contributions-svg.vercel.app/_/${user!.login}?chart=calendar&format=png&weeks=15&theme=blue&widget_size=small", width: 375,),
-            ],
+      child: Column(
+        children: [
+          SizedBox(
+            height: 5,
           ),
+          Align(
+            alignment: Alignment.topLeft,
+            child: TextButton.icon(
+              onPressed: () {
+                Navigator.pop(context);
+              },
+              icon: const Icon(
+                Icons.login,
+                color: Color.fromARGB(150, 31, 47, 140),
+                size: 35,
+              ),
+              label: Text(""),
+            ),
+          ),
+          Visibility(
+            visible: isLoaded,
+            replacement: const Center(
+              child: CircularProgressIndicator(),
+            ),
+            child: Column(
+              children: [
+                const SizedBox(
+                  height: 20,
+                ),
+                MainDetails(
+                  user: user,
+                ),
+                SizedBox(
+                  height: 10,
+                ),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Image.asset(
+                      "assets/images/icons8-queue-100.png",
+                      width: 30,
+                      color: Color.fromARGB(255, 31, 47, 140),
+                    ),
+                    TextButton(
+                      onPressed: () {
+                        Navigator.push(context,
+                            MaterialPageRoute(builder: (context) {
+                          return FollowScreen(
+                            followList: followers,
+                            type: "Followers",
+                          );
+                        }));
+                      },
+                      child: Row(
+                        children: [
+                          Text(
+                            "${user?.followers}",
+                            style: const TextStyle(
+                              fontSize: 20,
+                              fontWeight: FontWeight.bold,
+                              color: Color.fromARGB(255, 31, 47, 140),
+                            ),
+                          ),
+                          const Text(
+                            " Followers",
+                            style: TextStyle(
+                              fontSize: 18,
+                              fontWeight: FontWeight.bold,
+                              color: Color.fromARGB(150, 31, 47, 140),
+                            ),
+                          )
+                        ],
+                      ),
+                    ),
+                    Text(
+                      "|",
+                      style: TextStyle(
+                          fontSize: 30,
+                          color: Color.fromARGB(255, 31, 47, 140)),
+                    ),
+                    TextButton(
+                      onPressed: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) {
+                              return FollowScreen(
+                                followList: followings,
+                                type: "Followings",
+                              );
+                            },
+                          ),
+                        );
+                      },
+                      child: Row(
+                        children: [
+                          Text(
+                            "${user?.following}",
+                            style: const TextStyle(
+                              fontSize: 20,
+                              fontWeight: FontWeight.bold,
+                              color: Color.fromARGB(255, 31, 47, 140),
+                            ),
+                          ),
+                          const Text(
+                            " Followings",
+                            style: TextStyle(
+                              fontSize: 18,
+                              fontWeight: FontWeight.bold,
+                              color: Color.fromARGB(150, 31, 47, 140),
+                            ),
+                          )
+                        ],
+                      ),
+                    ),
+                  ],
+                ),
+                Image.network(
+                  "https://ssr-contributions-svg.vercel.app/_/${user?.login}?chart=calendar&format=png&weeks=15&theme=blue&widget_size=small",
+                  width: 375,
+                ),
+              ],
+            ),
+          ),
+        ],
       ),
     );
   }
