@@ -32,14 +32,14 @@ class FollowScreen extends StatelessWidget {
                   Image.asset(
                     "assets/images/icons8-queue-100.png",
                     width: 35,
-                    color: Color.fromARGB(255, 31, 47, 140),
+                    color: const Color.fromARGB(255, 31, 47, 140),
                   ),
                   const SizedBox(
                     width: 10,
                   ),
                   Text(
                     type,
-                    style: TextStyle(
+                    style: const TextStyle(
                       color: Color.fromARGB(255, 31, 47, 140),
                     ),
                   ),
@@ -53,7 +53,7 @@ class FollowScreen extends StatelessWidget {
             fontSize: 30,
             fontWeight: FontWeight.bold,
           ),
-          backgroundColor: Color.fromARGB(255, 240, 242, 242),
+          backgroundColor: const Color.fromARGB(255, 240, 242, 242),
         ),
         body: Container(
           decoration: const BoxDecoration(
@@ -61,9 +61,7 @@ class FollowScreen extends StatelessWidget {
           ),
           child: Center(
               child: Expanded(
-            // child: ListView(children: followList!.map((repository) {
-            //   return RepoButton(repositories: repository);
-            // }).toList()),
+            
             child: ListView.builder(
               itemCount: followList!.length,
               itemBuilder: (context, index) {
@@ -83,30 +81,5 @@ class FollowScreen extends StatelessWidget {
         ),
       ),
     );
-
-    if (followList!.isNotEmpty) {
-      return Expanded(
-        // child: ListView(children: followList!.map((repository) {
-        //   return RepoButton(repositories: repository);
-        // }).toList()),
-        child: ListView.builder(
-          itemCount: followList!.length,
-          itemBuilder: (context, index) {
-            return Column(
-              children: [
-                const SizedBox(
-                  height: 20,
-                ),
-                FollowButton(
-                  follow: followList![index],
-                ),
-              ],
-            );
-          },
-        ),
-      );
-    } else {
-      return const Text("Empty");
-    }
   }
 }

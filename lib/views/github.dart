@@ -24,9 +24,8 @@ class Github extends StatefulWidget {
 class _Github extends State<Github> {
   @override
   Widget build(BuildContext context) {
-    int currentIndex =0;
 
-    return MaterialApp(
+    return const MaterialApp(
       home: HomeScreen(),
     );
   }

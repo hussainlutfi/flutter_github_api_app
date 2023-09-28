@@ -24,7 +24,7 @@ class FollowButton extends StatelessWidget {
             boxShadow: <BoxShadow>[
               BoxShadow(
                 color: Colors.black38,
-                offset: const Offset(
+                offset: Offset(
                   5.0,
                   5.0,
                 ),

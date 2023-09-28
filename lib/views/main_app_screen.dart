@@ -9,9 +9,10 @@ import 'package:google_nav_bar/google_nav_bar.dart';
 import 'package:line_icons/line_icons.dart';
 
 class MainAppScreen extends StatefulWidget{
-  const MainAppScreen({super.key});
-  // final String userName;
+  const MainAppScreen({super.key, required this.userName});
+  final String userName;
 
+  
   @override
   State<StatefulWidget> createState() {
     // TODO: implement createState
@@ -41,17 +42,22 @@ class _MainAppScreen extends State<MainAppScreen>{
   }
 
   getData() async {
-    user = await RemoteService().getUser('https://api.github.com/users/7ussainlz');
+    user = await RemoteService().getUser('https://api.github.com/users/${widget.userName}');
+
     repositoriesList =
-    await RemoteService().getRepositories(user?.reposUrl ?? "");
+    await RemoteService().getRepositories(user?.reposUrl ?? "" );
+
     followers =
     await RemoteService().getFollows(user?.followersUrl ?? "");
+
     String followingsLink= user?.followingUrl ?? "";
     followings =
     await RemoteService().getFollows(followingsLink.substring(0, followingsLink.length - 13));
     String starredRepos = user?.starredUrl ?? "";
+
     starredReposList = await RemoteService()
         .getRepositories(starredRepos.substring(0, starredRepos.length - 15));
+
     if (user != null && repositoriesList != null && starredReposList != null) {
       setState(() {
         isLoaded = true;
@@ -112,12 +118,15 @@ class _MainAppScreen extends State<MainAppScreen>{
           ),
           backgroundColor: Color.fromARGB(255, 240, 242, 242),
         ),
+
+//=======================================================================
         body: Container(
           decoration: const BoxDecoration(
             color: Color.fromARGB(255, 242, 242, 242),
           ),
           child: Center(child: _widgetOptions.elementAt(_selectedIndex)),
         ),
+//=========================================================================
         bottomNavigationBar: Container(
           decoration: const BoxDecoration(
             color: Color.fromARGB(255, 255, 255, 255),
@@ -136,7 +145,6 @@ class _MainAppScreen extends State<MainAppScreen>{
                   duration: Duration(milliseconds: 400),
                   tabBackgroundColor: Colors.grey[100]!,
                   color: Color.fromARGB(255, 102, 98, 217),
-                  //Colors.black,
                   tabs: const [
                     GButton(
                       icon: LineIcons.user,

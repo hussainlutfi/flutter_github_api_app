@@ -28,16 +28,6 @@ class MainDetails extends StatelessWidget {
           height: 325,
           decoration: const BoxDecoration(
             borderRadius: BorderRadius.all(Radius.circular(20)),
-          //   gradient: LinearGradient(
-          //     colors: [
-          //       // Color.fromARGB(255, 0, 0, 0),
-          //       // Color.fromARGB(255, 79, 79, 79),
-          //       Color.fromARGB(255, 118, 95, 83),
-          //       Color.fromARGB(255, 191, 176, 168),
-          //     ],
-          //     begin: Alignment.topLeft,
-          //     end: Alignment.bottomRight,
-          //   ),
             color: Color.fromARGB(255, 102, 98, 217),
           ),
           child: Column(
@@ -58,10 +48,6 @@ class MainDetails extends StatelessWidget {
                 width: 300,
                 decoration: const BoxDecoration(
                   borderRadius: BorderRadius.all(Radius.circular(30)),
-                  // borderRadius: BorderRadius.only(
-                  //   topLeft: Radius.circular(30),
-                  //   topRight: Radius.circular(30),
-                  // ),
                   color: Color.fromARGB(150, 214, 214, 214),
                 ),
                 child: Center(
@@ -75,56 +61,6 @@ class MainDetails extends StatelessWidget {
                   ),
                 ),
               ),
-              // const SizedBox(
-              //   height: 3,
-              // ),
-              // Container(
-              //   height: 25,
-              //   width: 300,
-              //   decoration: const BoxDecoration(
-              //     borderRadius: BorderRadius.only(
-              //       bottomLeft: Radius.circular(30),
-              //       bottomRight: Radius.circular(30),
-              //     ),
-              //     color: Color.fromARGB(115, 214, 214, 214),
-              //   ),
-              //   child: Row(
-              //     mainAxisAlignment: MainAxisAlignment.center,
-              //     children: [
-              //       const Text(
-              //         "Followings: ",
-              //         style: TextStyle(
-              //             fontSize: 17,
-              //             fontWeight: FontWeight.bold,
-              //             color: Color.fromARGB(255, 0, 0, 0)),
-              //       ),
-              //       Text(
-              //         (user2.following).toString(),
-              //         style: const TextStyle(
-              //             fontSize: 17,
-              //             fontWeight: FontWeight.bold,
-              //             color: Color.fromARGB(255, 0, 0, 0)),
-              //       ),
-              //       const SizedBox(
-              //         width: 20,
-              //       ),
-              //       const Text(
-              //         "Followers: ",
-              //         style: TextStyle(
-              //             fontSize: 17,
-              //             fontWeight: FontWeight.bold,
-              //             color: Color.fromARGB(255, 0, 0, 0)),
-              //       ),
-              //       Text(
-              //         (user2.followers).toString(),
-              //         style: const TextStyle(
-              //             fontSize: 17,
-              //             fontWeight: FontWeight.bold,
-              //             color: Color.fromARGB(255, 0, 0, 0)),
-              //       ),
-              //     ],
-              //   ),
-              // ),
             ],
           ),
         ),
@@ -138,25 +74,19 @@ class MainDetails extends StatelessWidget {
           height: 325,
           decoration: const BoxDecoration(
             borderRadius: BorderRadius.all(Radius.circular(20)),
-            // gradient: LinearGradient(
-            //   colors: [
-            //     // Color.fromARGB(255, 0, 0, 0),
-            //     // Color.fromARGB(255, 79, 79, 79),
-            //     Color.fromARGB(255, 118, 95, 83),
-            //     Color.fromARGB(255, 191, 176, 168),
-            //   ],
-            //   begin: Alignment.topLeft,
-            //   end: Alignment.bottomRight,
-            // ),
             color: Color.fromARGB(255, 102, 98, 217),
           ),
           child: Center(
-              child: Container(
-                  decoration: BoxDecoration(border: Border.all(width: 10), borderRadius: BorderRadius.all(Radius.circular(15))),
-                  child: QrImage(
-                    data: user2.htmlUrl ?? "",
-                    size: 250,
-                  ))),
+            child: Container(
+              decoration: BoxDecoration(
+                  border: Border.all(width: 10),
+                  borderRadius: BorderRadius.all(Radius.circular(15))),
+              child: QrImage(
+                data: user2.htmlUrl ?? "",
+                size: 250,
+              ),
+            ),
+          ),
         ),
       ),
     );

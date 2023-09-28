@@ -14,10 +14,8 @@ class NavBar extends StatelessWidget {
     void SetSelected(int index){
       _selectedIndex = index;
     }
-
-    // TODO: implement build
     return Container(
-      decoration: BoxDecoration(
+      decoration: const BoxDecoration(
         color: Color.fromARGB(255, 255, 255, 255),
       ),
       child: SafeArea(
@@ -27,15 +25,14 @@ class NavBar extends StatelessWidget {
             rippleColor: Colors.grey[300]!,
             hoverColor: Colors.grey[100]!,
             gap: 8,
-            activeColor: Color.fromARGB(255, 31, 47, 140),
+            activeColor: const Color.fromARGB(255, 31, 47, 140),
             //Colors.black,
             iconSize: 24,
-            padding: EdgeInsets.symmetric(horizontal: 20, vertical: 12),
-            duration: Duration(milliseconds: 400),
+            padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 12),
+            duration: const Duration(milliseconds: 400),
             tabBackgroundColor: Colors.grey[100]!,
-            color: Color.fromARGB(255, 102, 98, 217),
-            //Colors.black,
-            tabs: [
+            color: const Color.fromARGB(255, 102, 98, 217),
+            tabs: const [
               GButton(
                 icon: LineIcons.user,
                 text: 'Profile',

@@ -9,7 +9,6 @@ class StarredRepoScreen extends StatefulWidget {
   
   @override
   State<StatefulWidget> createState() {
-    // TODO: implement createState
     return _StarredRepoScreen();
   }
 }
@@ -19,8 +18,8 @@ class _StarredRepoScreen extends State<StarredRepoScreen>{
   Widget build(BuildContext context) {
     return Center(
       child: Column(
-        children: [
-          const Text(
+        children: const [
+         Text(
             "Starred Repositories",
             style: TextStyle(
               fontSize: 35,

@@ -9,12 +9,7 @@ class RepoList extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     if (repositoriesList!.isNotEmpty) {
-      return Expanded(
-
-        // child: ListView(children: repositoriesList!.map((repository) {
-        //   return RepoButton(repositories: repository);
-        // }).toList()),
-        child: ListView.builder(
+      return  ListView.builder(
           itemCount: repositoriesList!.length,
           itemBuilder: (context, index) {
             return Column(
@@ -26,7 +21,7 @@ class RepoList extends StatelessWidget {
               ],
             );
           },
-        ),
+        
       );
     }
     else {

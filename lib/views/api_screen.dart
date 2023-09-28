@@ -70,13 +70,17 @@ class APIScreen extends StatelessWidget {
                     ),
                     TextButton(
                       onPressed: () {
-                        Navigator.push(context,
-                            MaterialPageRoute(builder: (context) {
-                          return FollowScreen(
-                            followList: followers,
-                            type: "Followers",
-                          );
-                        }));
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) {
+                              return FollowScreen(
+                                followList: followers,
+                                type: "Followers",
+                              );
+                            },
+                          ),
+                        );
                       },
                       child: Row(
                         children: [
@@ -99,7 +103,7 @@ class APIScreen extends StatelessWidget {
                         ],
                       ),
                     ),
-                    Text(
+                    const Text(
                       "|",
                       style: TextStyle(
                           fontSize: 30,
