@@ -1,4 +1,6 @@
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:github_project/models/User.dart';
 import 'package:github_project/models/repositories.dart';
 import 'package:github_project/services/remote_service.dart';
@@ -7,6 +9,7 @@ import 'package:github_project/views/follow_screen.dart';
 import 'package:github_project/views/main_details.dart';
 import 'package:github_project/views/repo_button.dart';
 import 'package:github_project/views/repo_list.dart';
+import 'package:line_icons/line_icon.dart';
 
 class APIScreen extends StatelessWidget {
   const APIScreen(
@@ -146,6 +149,16 @@ class APIScreen extends StatelessWidget {
                     ),
                   ],
                 ),
+                const SizedBox(height: 5,),
+                Container(width: 350, height: 2, color: Color.fromARGB(20, 31, 47, 140)),
+                const SizedBox(height: 5,),
+                const Text("Contributions" ,
+                  textAlign: TextAlign.left,
+                  style: TextStyle(
+                      fontSize: 20,
+                      fontWeight: FontWeight.bold,
+
+                      color: Color.fromARGB(255, 31, 47, 140)),),
                 Image.network(
                   "https://ssr-contributions-svg.vercel.app/_/${user?.login}?chart=calendar&format=png&weeks=15&theme=blue&widget_size=small",
                   width: 375,

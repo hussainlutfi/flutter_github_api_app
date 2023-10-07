@@ -124,7 +124,7 @@ class _MainAppScreen extends State<MainAppScreen>{
           decoration: const BoxDecoration(
             color: Color.fromARGB(255, 242, 242, 242),
           ),
-          child: Center(child: _widgetOptions.elementAt(_selectedIndex)),
+          child: _widgetOptions.elementAt(_selectedIndex),//Center(child: _widgetOptions.elementAt(_selectedIndex)),
         ),
 //=========================================================================
         bottomNavigationBar: Container(

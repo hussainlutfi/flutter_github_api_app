@@ -7,6 +7,7 @@ import 'package:github_project/views/main_app_screen.dart';
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
 
+
   @override
   State<StatefulWidget> createState() {
     return _HomeScreen();
@@ -16,12 +17,16 @@ class HomeScreen extends StatefulWidget {
 class _HomeScreen extends State<HomeScreen> {
   final usernameController = TextEditingController();
 
+
+
   @override
   void initState() {
+    // TODO: implement initState
     super.initState();
-
-    usernameController.addListener(() => setState(() {}));
+    usernameController.addListener(() => setState(() { }));
   }
+
+
 
   @override
   Widget build(BuildContext context) {
@@ -78,18 +83,19 @@ class _HomeScreen extends State<HomeScreen> {
                         ),
                         const SizedBox(height: 40),
                         OutlinedButton.icon(
-                            onPressed: () {
-                                Navigator.push(
-                                  context,
-                                  MaterialPageRoute(
-                                    builder: (context) {
-                                      return MainAppScreen(
-                                        userName: usernameController.text,
-                                      );
-                                    },
-                                  ),
+                            onPressed: ()  {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) {
+                                return MainAppScreen(
+                                  userName: usernameController.text,
                                 );
+                              },
+                            ),
+                          );
                             },
+
                             style: OutlinedButton.styleFrom(
                                 //padding: const EdgeInsets.only(top: 30),
                                 foregroundColor:

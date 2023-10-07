@@ -30,36 +30,52 @@ class MainDetails extends StatelessWidget {
             borderRadius: BorderRadius.all(Radius.circular(20)),
             color: Color.fromARGB(255, 102, 98, 217),
           ),
-          child: Column(
+          child: Row(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              ClipOval(
-                child: Image.network(
-                  user2.avatarUrl ?? "",
-                  fit: BoxFit.cover,
-                  width: 200,
-                ),
-              ),
-              const SizedBox(
-                height: 15,
-              ),
-              Container(
-                height: 50,
-                width: 300,
-                decoration: const BoxDecoration(
-                  borderRadius: BorderRadius.all(Radius.circular(30)),
-                  color: Color.fromARGB(150, 214, 214, 214),
-                ),
-                child: Center(
-                  child: Text(
-                    user2.name ?? "",
-                    // textAlign: TextAlign.center,
-                    style: const TextStyle(
-                        fontSize: 20,
-                        fontWeight: FontWeight.bold,
-                        color: Colors.black),
+              const SizedBox(width: 30,),
+              Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  ClipOval(
+                    child: Image.network(
+                      user2.avatarUrl ?? "",
+                      fit: BoxFit.cover,
+                      width: 200,
+                    ),
                   ),
-                ),
+                  const SizedBox(
+                    height: 15,
+                  ),
+                  Container(
+                    height: 50,
+                    width: 275,
+                    decoration: const BoxDecoration(
+                      borderRadius: BorderRadius.all(Radius.circular(30)),
+                      color: Color.fromARGB(150, 214, 214, 214),
+                    ),
+                    child: Center(
+                      child: Text(
+                        user2.name ?? "",
+                        // textAlign: TextAlign.center,
+                        style: const TextStyle(
+                            fontSize: 20,
+                            fontWeight: FontWeight.bold,
+                            color: Colors.black),
+                      ),
+                    ),
+                  ),
+                ],
+              ),
+
+              Container(
+                margin: EdgeInsets.only( top: 10),
+                width: 30,
+                alignment: Alignment.topRight,
+                  child: Image.asset("assets/images/icons8-flip-64.png",
+                    color: const Color.fromARGB(
+                        255, 46, 44, 105),),
+
               ),
             ],
           ),
