@@ -13,18 +13,11 @@ class FollowScreen extends StatelessWidget {
     return MaterialApp(
       home: Scaffold(
         appBar: AppBar(
-          title: Row(
-            children: [
-              Align(
-                alignment: Alignment.centerLeft,
-                child: TextButton.icon(
-                  onPressed: () {
-                    Navigator.pop(context);
-                  },
-                  icon: const Icon(Icons.arrow_back_ios, color:Color.fromARGB(150, 31, 47, 140) ,),
-                  label: const Text(""),
-                ),
-              ),
+          leading: IconButton(
+            icon: Icon(Icons.arrow_back, color: Color.fromARGB(255, 31, 47, 140)), // Set your color here
+            onPressed: () => Navigator.pop(context),
+          ),
+          title:
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
@@ -45,8 +38,6 @@ class FollowScreen extends StatelessWidget {
                   ),
                 ],
               ),
-            ],
-          ),
           centerTitle: true,
           titleTextStyle: const TextStyle(
             color: Color.fromARGB(255, 44, 44, 44),
