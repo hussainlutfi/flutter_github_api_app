@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:github_project/models/User.dart';
+import 'package:github_project/views/main_app_screen.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 class FollowButton extends StatelessWidget {
@@ -10,12 +11,22 @@ class FollowButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
-      onTap: () async {
-        Uri _url = Uri.parse(follow.htmlUrl!);
-        if (!await launchUrl(_url)) {
-          throw Exception('Could not launch $_url');
-        }
-      },
+      onTap:() {Navigator.push(
+        context,
+        MaterialPageRoute(
+          builder: (context) {
+            return MainAppScreen(
+              userName: follow.login??"",
+            );
+          },
+        ),
+      );},
+      //     () async {
+      //   Uri _url = Uri.parse(follow.htmlUrl!);
+      //   if (!await launchUrl(_url)) {
+      //     throw Exception('Could not launch $_url');
+      //   }
+      // },
       child: Container(
           width: 375,
           height: 100,

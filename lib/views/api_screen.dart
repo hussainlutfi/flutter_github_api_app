@@ -33,20 +33,7 @@ class APIScreen extends StatelessWidget {
           SizedBox(
             height: 5,
           ),
-          Align(
-            alignment: Alignment.topLeft,
-            child: TextButton.icon(
-              onPressed: () {
-                Navigator.pop(context);
-              },
-              icon: const Icon(
-                Icons.login,
-                color: Color.fromARGB(150, 31, 47, 140),
-                size: 35,
-              ),
-              label: Text(""),
-            ),
-          ),
+
           Visibility(
             visible: isLoaded,
             replacement: const Center(

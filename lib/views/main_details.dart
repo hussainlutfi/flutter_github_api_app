@@ -56,7 +56,7 @@ class MainDetails extends StatelessWidget {
                     ),
                     child: Center(
                       child: Text(
-                        user2.name ?? "",
+                        user2.name ?? user2.login?? "",
                         // textAlign: TextAlign.center,
                         style: const TextStyle(
                             fontSize: 20,

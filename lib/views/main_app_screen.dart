@@ -91,6 +91,10 @@ class _MainAppScreen extends State<MainAppScreen>{
     // TODO: implement build
     return Scaffold(
         appBar: AppBar(
+          leading: IconButton(
+            icon: Icon(Icons.arrow_back, color: Color.fromARGB(255, 31, 47, 140)), // Set your color here
+            onPressed: () => Navigator.pop(context),
+          ),
           title: Row(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
