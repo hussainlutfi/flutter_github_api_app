@@ -14,7 +14,7 @@ class FollowScreen extends StatelessWidget {
       home: Scaffold(
         appBar: AppBar(
           leading: IconButton(
-            icon: Icon(Icons.arrow_back, color: Color.fromARGB(255, 31, 47, 140)), // Set your color here
+            icon: Icon(Icons.arrow_back, color: Color.fromARGB(255, 31, 47, 140), size: 25,), // Set your color here
             onPressed: () => Navigator.pop(context),
           ),
           title:
@@ -45,6 +45,7 @@ class FollowScreen extends StatelessWidget {
             fontWeight: FontWeight.bold,
           ),
           backgroundColor: const Color.fromARGB(255, 240, 242, 242),
+          actions: [const SizedBox(width: 50,)],
         ),
         body: Container(
           decoration: const BoxDecoration(

@@ -72,7 +72,7 @@ class MainDetails extends StatelessWidget {
                 margin: EdgeInsets.only( top: 10),
                 width: 30,
                 alignment: Alignment.topRight,
-                  child: Image.asset("assets/images/icons8-flip-64.png",
+                  child: Image.asset("assets/images/icons8-qr-code-96.png",
                     color: const Color.fromARGB(
                         255, 46, 44, 105),),
 

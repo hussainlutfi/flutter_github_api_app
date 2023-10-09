@@ -72,6 +72,7 @@ flutter:
     - assets\images\GitHub-Logo.png
     - assets\images\25231.png
     - assets\images\icons8-queue-100.png
+    - assets\images\icons8-qr-code-96.png
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware

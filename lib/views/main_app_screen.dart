@@ -92,7 +92,7 @@ class _MainAppScreen extends State<MainAppScreen>{
     return Scaffold(
         appBar: AppBar(
           leading: IconButton(
-            icon: Icon(Icons.arrow_back, color: Color.fromARGB(255, 31, 47, 140)), // Set your color here
+            icon: Icon(Icons.arrow_back, color: Color.fromARGB(255, 31, 47, 140), size: 25,), // Set your color here
             onPressed: () => Navigator.pop(context),
           ),
           title: Row(
@@ -121,6 +121,10 @@ class _MainAppScreen extends State<MainAppScreen>{
             fontWeight: FontWeight.bold,
           ),
           backgroundColor: Color.fromARGB(255, 240, 242, 242),
+          actions: [
+            SizedBox(width: 50, /* Adjust the width to balance the title */),
+          ],
+
         ),
 
 //=======================================================================
